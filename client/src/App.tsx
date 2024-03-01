@@ -5,7 +5,7 @@ import abi2 from "./assets/ERC20_A.json";
 import abi3 from "./assets/CPAMM.json";
 import {ethers,Contract, BrowserProvider, BaseContract} from "ethers";
 import { useState, useEffect } from "react";
-import {ERC20, ERC20_A, CPAMM} from "../../typechain-types";
+import {ERC20, ERC20_A, CPAMM} from "../typechain-types";
 
 export interface IState {
   provider : ethers.BrowserProvider | null;
