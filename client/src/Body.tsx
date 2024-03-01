@@ -41,12 +41,12 @@ const Body: React.FC<{ state: IState | null }> = (props) => {
     // console.log("liquidity added");
 
 
-    const approvedAgain = await contract1?.approve(await contract3?.getAddress(),amount1*(10**2));
-    await approvedAgain.wait();
+    const approvedAgain = await contract1?.approve(String(await contract3?.getAddress()), amount1*(10**2));
+    await approvedAgain?.wait();
     console.log("approved again");
 
-    const swapping = await contract3?.swap(await contract1?.getAddress(),amount1*(10**2));
-    await swapping.wait();
+    const swapping = await contract3?.swap(String(await contract1?.getAddress()), amount1*(10**2));
+    await swapping?.wait();
     
     console.log("transaction done");
     setShow(true);

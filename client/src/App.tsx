@@ -3,15 +3,16 @@ import Body from "./Body";
 import abi1 from "./assets/ERC20.json";
 import abi2 from "./assets/ERC20_A.json";
 import abi3 from "./assets/CPAMM.json";
-import {ethers,Contract, BrowserProvider} from "ethers";
+import {ethers,Contract, BrowserProvider, BaseContract} from "ethers";
 import { useState, useEffect } from "react";
+import {ERC20, ERC20_A, CPAMM} from "../../typechain-types";
 
 export interface IState {
   provider : ethers.BrowserProvider | null;
   signer : ethers.JsonRpcSigner | null;
-  contract1 : ethers.Contract | null;
-  contract2 : ethers.Contract | null;
-  contract3 : ethers.Contract | null;
+  contract1 : ERC20 | null;
+  contract2 : ERC20_A | null;
+  contract3 : CPAMM | null;
 }
 
 const App = () => {
@@ -54,17 +55,19 @@ const App = () => {
             contractAddress1,
             contractAddress1abi1,
             signer
-          );
+          ) as BaseContract as ERC20;
+
           const contract2 = new Contract(
             contractAddress2,
             contractAddress2abi2,
             signer
-          );
+          ) as BaseContract as ERC20_A;
+
           const contract3 = new Contract(
             contractAddress3,
             contractAddress3abi3,
             signer
-          );
+          ) as BaseContract as CPAMM;
 
           setAccount(account);
           setState({ provider, signer, contract1, contract2, contract3 });
