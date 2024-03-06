@@ -1,3 +1,6 @@
+/* Use a single css file, for custom styles
+Use CSS reset templates for remove default styling
+*/
 body{
   background-color: black;
   color : white;

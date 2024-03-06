@@ -1,12 +1,13 @@
 import React from "react";
 import Body from "./Body";
-import abi1 from "./assets/ERC20.json";
+import abi1 from "./assets/ERC20.json"; // Use {CONTRACTNAME}abi instead of abi1, abi2...
 import abi2 from "./assets/ERC20_A.json";
 import abi3 from "./assets/CPAMM.json";
 import {ethers,Contract, BrowserProvider, BaseContract} from "ethers";
 import { useState, useEffect } from "react";
 import {ERC20, ERC20_A, CPAMM} from "../typechain-types";
 
+// Create seperate file for interfaces and types
 export interface IState {
   provider : ethers.BrowserProvider | null;
   signer : ethers.JsonRpcSigner | null;
@@ -20,6 +21,7 @@ const App = () => {
   const [state, setState] = useState<IState | null>({
     provider: null,
     signer: null,
+    // use meaningful vaiable names
     contract1: null,
     contract2: null,
     contract3: null,
@@ -27,6 +29,8 @@ const App = () => {
 
   useEffect(() => {
     const connectWallet = async () => {
+      // use meaningful variable names
+      // use environment variable for constant values
       const contractAddress1 = "0x00A47703F42D64e71ee8166a117121656FD0437B";
       const contractAddress1abi1 = abi1.abi;
       const contractAddress2 = "0xe3118826315d8E5d676ffA08470d789b81D35dc8";
@@ -40,6 +44,8 @@ const App = () => {
           const account = await ethereum.request({
             method: "eth_requestAccounts",
           });
+
+          // Commented code should be removed before commiting
 
           // window.ethereum.on("chainChanged",()=>{
           //   window.location.reload();
@@ -80,7 +86,7 @@ const App = () => {
     };
     connectWallet();
   }, []);
-
+// please remove commented code
 // const first = account.slice(0,4);
   return (
     <React.Fragment>

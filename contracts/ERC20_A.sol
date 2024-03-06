@@ -5,13 +5,15 @@ import "./IERC20.sol";
 
 contract ERC20_A is IERC20 {
 
-    uint public override totalSupply;
+    uint public override totalSupply; // Should be initialised, to mitigate uninitialisation error
     mapping(address => uint) public override balanceOf;
     mapping(address => mapping(address => uint)) public override allowance;
-    string public name = "Ankita";
-    string public symbol = "ANK";
+    string public name = "Ankita"; //Constants should be written in uppercase with underscores separating words (TOKEN_NAME)
+    string public symbol = "ANK"; //Constants should be written in uppercase with underscores separating words
     uint8 public decimals = 2;
 
+// Add comments for better readability
+// Use NATSPEC format for documentation https://docs.soliditylang.org/en/latest/natspec-format.html
     constructor() {
         mint(100000*(10**(decimals)));
     }

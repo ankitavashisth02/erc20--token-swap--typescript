@@ -4,24 +4,32 @@ import { IState } from "./App";
 const Body: React.FC<{ state: IState | null }> = (props) => {
     const[show, setShow] = useState<Boolean>(true);
 
+    // Use a linter, es-lint, ts-lint
+    // Use meaningful variable names
+    // Use type assertions for contracts
   const contract1 = props.state!.contract1;
 //   const contract2 = props.state!.contract2;
   const contract3 = props.state!.contract3;
 
   const handleChange = async()=> {
+    // Use try-catch for graceful error handling
     var reserveIn = Number(await contract3?.reserve0());
     var reserveOut = Number(await contract3?.reserve1());
-    const amount1:number = Number((document.querySelector(".inputToken") as HTMLInputElement)?.value);
+    const amount1:number = Number((document.querySelector(".inputToken") as HTMLInputElement)?.value); // Use meaningful variable names
     
+    // Please use variables for 997. what it is? 
     var amountWithFee = (amount1 * 997)/1000;
     var amountOut = (amountWithFee * reserveOut)/(reserveIn + amountWithFee);
     (document.querySelector(".outputToken") as HTMLInputElement).value = (amountOut+ Number(amount1)).toString();
   }
 
   const transferToken = async(ev : React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
+    // Use try-catch 
     ev?.preventDefault();
     setShow(false);
     const amount1 =  Number((document.querySelector(".inputToken") as HTMLInputElement)?.value);
+    // Remove comments 
+    // Remove uneccessary logs
     // console.log(contract3);
     console.log(amount1);
     // console.log(await contract2.symbol());
@@ -45,11 +53,13 @@ const Body: React.FC<{ state: IState | null }> = (props) => {
     await approvedAgain?.wait();
     console.log("approved again");
 
+    // Why are we multiplyng it with 10**2? What does this value signify? Use a variable name if possible.
     const swapping = await contract3?.swap(String(await contract1?.getAddress()), amount1*(10**2));
     await swapping?.wait();
     
     console.log("transaction done");
     setShow(true);
+    // Remove comments
     // window.alert("transaction done");
   }
 

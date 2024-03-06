@@ -1,3 +1,4 @@
+// tests files should be named with extension .test.ts
 import {
   time,
   loadFixture,
@@ -20,6 +21,7 @@ describe("Lock", function () {
     // Contracts are deployed using the first signer/account by default
     const [owner, otherAccount] = await ethers.getSigners();
 
+    // Where is the Lock.sol file??
     const Lock = await ethers.getContractFactory("Lock");
     const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
 

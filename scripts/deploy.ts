@@ -1,7 +1,7 @@
 import hre from "hardhat";
 
 async function main() {
-  const [owner] = await hre.ethers.getSigners();
+  const [owner] = await hre.ethers.getSigners(); // owner is not being used anywhere
 
   const ERC20 = await  hre.ethers.getContractFactory("ERC20");
   const ERC20_A = await  hre.ethers.getContractFactory("ERC20");
@@ -31,7 +31,7 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 
-
+// Remove useless comments
 
 // 0x00A47703F42D64e71ee8166a117121656FD0437B
 // 0xe3118826315d8E5d676ffA08470d789b81D35dc8

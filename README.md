@@ -1,3 +1,4 @@
+<!-- README.md should be descriptive enough to tell what your project does and how does it do that, and how to use it. -->
 # Sample Hardhat Project
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.

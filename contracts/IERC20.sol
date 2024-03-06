@@ -2,6 +2,7 @@
 pragma solidity <0.9.0;
 
 //https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.0.0/contracts/token/ERC20/IERC20.sol
+// Remove unwanted comments
 interface IERC20 {
     function totalSupply() external view returns (uint);
 
