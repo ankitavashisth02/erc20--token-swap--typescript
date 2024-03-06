@@ -1,3 +1,4 @@
+/* Use a single css file, for custom styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +13,7 @@ code {
     monospace;
 }
 
+/* Don't have overlapping style  */
 body{
   background-color: black;
   color : white;

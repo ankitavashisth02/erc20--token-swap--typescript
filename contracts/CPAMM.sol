@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity <0.9.0;
+pragma solidity <0.9.0; // pragma should be locked
 
+// Dont use uncommon abbreviation, add comments for abbreviations
 contract CPAMM {
     IERC20 public immutable token0;
     IERC20 public immutable token1;
@@ -56,6 +57,7 @@ contract CPAMM {
 }
 
 
+// Interfaces should be kept in a seperate file/folder, and imported when needed. 
 interface IERC20 {
     function totalSupply() external view returns (uint);
 
